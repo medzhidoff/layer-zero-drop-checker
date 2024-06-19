@@ -15,7 +15,7 @@ for wallet in wallets_csv:
     else:
         data = response.json()
         comment = "ELIGIBLE" if data['isEligible'] else "NOT ELIGIBLE"
-        amount = float(data['zroAllocation']['asString'])
+        amount = data['zroAllocation']['asString'].replace('.', ',')
     result.append(dict(
         wallet_address=wallet_address,
         comment=comment,
